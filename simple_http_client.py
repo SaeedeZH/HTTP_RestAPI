@@ -1,7 +1,5 @@
 import requests
 
-
-
 def get_data():
       # set api_endpoint
     url = "http://127.0.0.1:5000/tasks/1"
@@ -21,7 +19,15 @@ def get_data():
       print(response.json())
     except requests.exceptions.HTTPError as err:
       print(f"this is {err}")
-    
+
+def post_data():
+   new_data = { 'title': 'Task 4' }
+   url = "http://127.0.0.1:5000/tasks"
+   post_respone = requests.post(url, json=new_data)
+   print(f"The satats of Post function {post_respone.status_code}")
+   print(post_respone.json())
+
 
 
 get_data()
+post_data()
